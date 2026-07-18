@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-weight: 400;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.accent.DEFAULT');
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* main content container */
+  .container-page {
+    @apply mx-auto w-full max-w-content px-4 sm:px-6;
+  }
+}
+
+/* Hide scrollbars on scroll-snap rows while keeping them scrollable */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hero data-flow graphic animation */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes flow-dash {
+    to {
+      stroke-dashoffset: -1000;
+    }
+  }
+  @keyframes node-pulse {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  .flow-edge {
+    stroke-dasharray: 6 10;
+    animation: flow-dash 22s linear infinite;
+  }
+  .flow-node {
+    animation: node-pulse 3.5s ease-in-out infinite;
+  }
+}
