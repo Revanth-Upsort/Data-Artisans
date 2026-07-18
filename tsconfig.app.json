@@ -23,7 +23,7 @@
     "noUncheckedSideEffectImports": true,
 
     /* Paths */
-    "baseUrl": "/Data-Artisans/src",
+    "baseUrl": "/",
     "paths": {
       "@/*": ["src/*"]
     }
